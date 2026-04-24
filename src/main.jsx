@@ -4,10 +4,17 @@ import './index.css'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Root from './Layouts/Root';
+import Home from './Components/Home/Home';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>
+    element: <Root></Root>,
+    children: [
+      {
+        index: true,
+        Component: Home
+      }
+    ]
   }
 ]);
 createRoot(document.getElementById('root')).render(
