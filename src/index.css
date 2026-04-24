@@ -1,1 +1,7 @@
 @import "tailwindcss";
+nav a.active {
+    text-decoration: underline;
+}
+nav a{
+    margin-right: 30px;
+}
