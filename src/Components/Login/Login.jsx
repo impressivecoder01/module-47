@@ -1,10 +1,17 @@
 // import React from 'react';
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../firebase/firebase.init";
 
 const provider = new GoogleAuthProvider();
 const Login = () => {
     const handleGoogleSingIn = () => {
-        console.log('gooogle ')
+        signInWithPopup(auth, provider)
+        .then(res => {
+            console.log(res.user)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
     return (
         <div className="w-3xl mx-auto bg-gray-500">
