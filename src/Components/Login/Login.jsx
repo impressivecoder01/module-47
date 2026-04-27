@@ -5,12 +5,14 @@ import { useState } from "react";
 
 const provider = new GoogleAuthProvider();
 const gitProvider = new GithubAuthProvider()
+gitProvider.addScope('user:email');
 const Login = () => {
   const [user, setUser] = useState(null);
   const handleGoogleSingIn = () => {
     signInWithPopup(auth, provider)
       .then((res) => {
         setUser(res.user);
+        console.log(res.user)
       })
       .catch((err) => {
         console.log(err);
